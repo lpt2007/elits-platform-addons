@@ -1,0 +1,32 @@
+{
+  "name": "AiStoragE",
+  "version": "0.1.0",
+  "slug": "aistorage",
+  "description": "AI-powered electronic components storage with image recognition",
+  "url": "https://github.com/lpt2007/elits-platform-addons/tree/main/aistorage",
+  "arch": ["amd64", "arm64"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+    "8000/tcp": 8082
+  },
+  "map": ["config:rw", "share:rw", "media:rw"],
+  "options": {
+    "database_url": "postgresql://aistorage:aistorage@localhost:5432/aistorage_db",
+    "hermes_api_url": "http://elits_hermes-ai:5000",
+    "watch_folder": "/data/storage/new_components",
+    "image_storage": "/data/images"
+  },
+  "schema": {
+    "database_url": "str",
+    "hermes_api_url": "str",
+    "watch_folder": "str",
+    "image_storage": "str"
+  },
+  "environment": {
+    "DATABASE_URL": "${database_url}",
+    "HERMES_API_URL": "${hermes_api_url}",
+    "WATCH_FOLDER": "${watch_folder}",
+    "IMAGE_STORAGE": "${image_storage}"
+  }
+}
