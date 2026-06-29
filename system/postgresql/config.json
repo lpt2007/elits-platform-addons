@@ -1,0 +1,34 @@
+{
+  "name": "PostgreSQL",
+  "version": "1.0.0",
+  "slug": "postgresql",
+  "description": "PostgreSQL relational database for Elits Platform",
+  "url": "https://github.com/lpt2007/elits-platform-addons/tree/main/system/postgresql",
+  "arch": [
+    "amd64",
+    "arm64"
+  ],
+  "startup": "services",
+  "boot": "auto",
+  "ports": {
+    "5432/tcp": 5432
+  },
+  "map": [
+    "share:rw"
+  ],
+  "options": {
+    "postgres_user": "elits",
+    "postgres_password": "elits_secure_password_2026",
+    "postgres_db": "elits_platform"
+  },
+  "schema": {
+    "postgres_user": "str",
+    "postgres_password": "str",
+    "postgres_db": "str"
+  },
+  "environment": {
+    "POSTGRES_USER": "${postgres_user}",
+    "POSTGRES_PASSWORD": "${postgres_password}",
+    "POSTGRES_DB": "${postgres_db}"
+  }
+}
